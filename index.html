@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NOURIS | Beauty & Artistry</title>
+    
+    <!-- Fonts: Cinzel (Luxury Roman), Amiri (Classic Arabic), Tajawal (Modern Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- GSAP & Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- WebGL Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- Loading Screen -->
+    <div id="loader"><div class="loader-line" id="loader-line"></div></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="gsap-reveal">
+            <h1 class="brand-logo font-brand">NOURIS</h1>
+            <p class="brand-subtitle font-serif-ar">فن المكياج والجمال</p>
+        </header>
+
+        <!-- Services Section -->
+        <div class="glass-card gsap-reveal">
+            <h2 class="section-title">قائمة الأسعار</h2>
+            
+            <div class="service-item">
+                <span class="service-name">ميك اب ثقيل</span>
+                <span class="service-price">250 SR</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">ميك اب ناعم</span>
+                <span class="service-price">200 SR</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">رموش</span>
+                <span class="service-price">30 SR</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">رموش أسبوعية</span>
+                <span class="service-price">100 SR</span>
+            </div>
+        </div>
+
+        <!-- Policy Section -->
+        <div class="glass-card gsap-reveal">
+            <h2 class="section-title">سياسة الحجز</h2>
+            <p class="policy-text">
+                عربون لتأكيد الموعد 100 ريال<br>
+                <span style="font-size: 0.8em; opacity: 0.7;">(غير قابل للاسترداد)</span>
+            </p>
+        </div>
+
+        <!-- Features Section -->
+        <div class="glass-card gsap-reveal">
+            <h2 class="section-title">خدمات إضافية</h2>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="feature-icon">✦</span>
+                    <span>يوجد لدينا هير ستايل (تسريحات شعر)</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-icon">✦</span>
+                    <span>حجز خارجي متاح: منازل - فنادق - منتجعات</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="glass-card gsap-reveal" style="text-align: center;">
+            <a href="https://wa.me/966593302141" class="btn-action">
+                حجز موعد (واتساب)
+            </a>
+            <a href="https://instagram.com/nouris.artist" class="btn-action btn-outline">
+                NOURIS.ARTIST @
+            </a>
+        </div>
+
+        <footer class="gsap-reveal">
+            <div style="margin-bottom: 10px; font-family: 'Cinzel'; opacity: 0.5; font-size: 12px;">EST. 2024</div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
