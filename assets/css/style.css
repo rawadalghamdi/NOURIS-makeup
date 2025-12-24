@@ -2,7 +2,8 @@
     --bg-deep: #050505;
     --text-primary: #F0F0F0;
     --text-secondary: #A0A0A0;
-    --accent-gold: #D4AF37; /* Subtle gold for highlights */
+    --accent-gold: #D4AF37;
+    /* Subtle gold for highlights */
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-bg: rgba(10, 10, 10, 0.4);
     --glass-highlight: rgba(255, 255, 255, 0.03);
@@ -34,25 +35,85 @@ body {
     width: 100%;
     height: 100vh;
     z-index: -1;
-    pointer-events: none; /* Let clicks pass through */
+    pointer-events: none;
+    /* Let clicks pass through */
 }
 
 /* Main Container */
 .app-container {
     position: relative;
     z-index: 10;
-    max-width: 480px; /* Mobile focused width */
+    max-width: 480px;
+    /* Mobile focused width */
     margin: 0 auto;
-    padding: 40px 20px 80px 20px;
+    padding: 40px 20px 250px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
 
+/* Sticky Footer */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    /* Smoother fade: Solid base, gradual fade to transparent at the top */
+    background: linear-gradient(to top,
+            #050505 20%,
+            rgba(5, 5, 5, 0.95) 45%,
+            rgba(5, 5, 5, 0.7) 70%,
+            rgba(5, 5, 5, 0) 100%);
+    padding: 60px 20px 30px 20px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+
+    /* Animation Initial State */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.sticky-content {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    pointer-events: auto;
+    /* Re-enable clicks for content */
+}
+
+.sticky-footer .btn-action {
+    margin-top: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.sticky-footer .social-row {
+    margin-top: 5px;
+}
+
+.sticky-handle {
+    color: var(--text-secondary);
+    letter-spacing: 2px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
 /* Typography Utilities */
-.font-brand { font-family: 'Cinzel', serif; letter-spacing: 0.15em; }
-.font-serif-ar { font-family: 'Amiri', serif; }
+.font-brand {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.15em;
+}
+
+.font-serif-ar {
+    font-family: 'Amiri', serif;
+}
+
 .text-gradient {
     background: linear-gradient(to bottom, #fff, #aaa);
     -webkit-background-clip: text;
@@ -63,7 +124,8 @@ body {
 header {
     text-align: center;
     margin-bottom: 40px;
-    opacity: 0; /* JS Animation start */
+    opacity: 0;
+    /* JS Animation start */
     transform: translateY(20px);
 }
 
@@ -72,7 +134,7 @@ header {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: white;
-    text-shadow: 0 0 20px rgba(255,255,255,0.1);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .brand-subtitle {
@@ -88,22 +150,25 @@ header {
     backdrop-filter: blur(var(--blur-strength));
     -webkit-backdrop-filter: blur(var(--blur-strength));
     border: 1px solid var(--glass-border);
-    border-radius: 2px; /* Sharp, high-fashion edges */
+    border-radius: 2px;
+    /* Sharp, high-fashion edges */
     padding: 24px;
     width: 100%;
     margin-bottom: 24px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                border-color 0.4s ease,
-                background 0.4s ease;
-    opacity: 0; /* JS Animation start */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease,
+        background 0.4s ease;
+    opacity: 0;
+    /* JS Animation start */
     transform: translateY(30px);
 }
 
 .glass-card:hover {
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(20, 20, 20, 0.5);
-    transform: translateY(30px) scale(1.01); /* Keep transform offset in mind */
+    transform: translateY(30px) scale(1.01);
+    /* Keep transform offset in mind */
 }
 
 /* Specific hover fix for GSAP conflict */
@@ -130,7 +195,7 @@ body.loaded .glass-card:hover {
     align-items: center;
     margin-bottom: 16px;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .service-item:last-child {
@@ -156,7 +221,8 @@ body.loaded .glass-card:hover {
     color: var(--text-secondary);
     line-height: 1.6;
     text-align: center;
-    border: 1px solid rgba(212, 175, 55, 0.2); /* Subtle Gold Border */
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    /* Subtle Gold Border */
     padding: 15px;
     background: rgba(212, 175, 55, 0.02);
 }
@@ -165,6 +231,7 @@ body.loaded .glass-card:hover {
 .feature-list {
     list-style: none;
 }
+
 .feature-item {
     display: flex;
     align-items: center;
@@ -172,6 +239,7 @@ body.loaded .glass-card:hover {
     margin-bottom: 12px;
     color: var(--text-secondary);
 }
+
 .feature-icon {
     color: white;
     font-size: 0.8rem;
@@ -198,17 +266,18 @@ body.loaded .glass-card:hover {
 
 .btn-action:hover {
     background: #fff;
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     letter-spacing: 0.1em;
 }
 
 .btn-outline {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
 }
+
 .btn-outline:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-color: white;
 }
 
@@ -227,7 +296,10 @@ footer {
     font-size: 0.9rem;
     transition: color 0.3s;
 }
-.social-link:hover { color: white; }
+
+.social-link:hover {
+    color: white;
+}
 
 /* Loader */
 #loader {
@@ -237,12 +309,13 @@ footer {
     width: 100%;
     height: 100%;
     background: #000;
-    z-index: 100;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: opacity 1s ease;
 }
+
 .loader-line {
     width: 0%;
     height: 1px;
@@ -277,7 +350,7 @@ footer {
     background: white;
     color: black;
     transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .icon-btn svg {

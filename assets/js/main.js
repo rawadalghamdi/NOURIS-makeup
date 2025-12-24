@@ -149,7 +149,7 @@ document.addEventListener('mousemove', (e) => {
 
 // Touch support for mobile interaction
 document.addEventListener('touchmove', (e) => {
-    if(e.touches.length > 0) {
+    if (e.touches.length > 0) {
         targetMouse.x = e.touches[0].clientX / window.innerWidth;
         targetMouse.y = 1.0 - (e.touches[0].clientY / window.innerHeight);
     }
@@ -176,7 +176,7 @@ window.onload = () => {
     // Fake loading line
     const loaderLine = document.getElementById('loader-line');
     const loader = document.getElementById('loader');
-    
+
     // Step 1: Fill line
     loaderLine.style.width = '100%';
 
@@ -195,6 +195,37 @@ window.onload = () => {
                 stagger: 0.15,
                 ease: "power3.out"
             });
+
+            // Sticky Footer Reveal (Timed to appear after Price List)
+            // Price list is 2nd item -> starts at 0.15s. We start this at 0.5s to be distinct.
+            gsap.to('.sticky-footer', {
+                duration: 1.2,
+                y: 0,
+                opacity: 1,
+                delay: 0.5,
+                ease: "power3.out"
+            });
         }, 1000);
     }, 1200);
 };
+
+// --- 5. HEADER SCROLL EFFECT ---
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    // Only apply if header exists and site is loaded to avoid conflict with entrance animation
+    // Although standard CSS override is fine, logic is simple enough.
+    if (!header) return;
+
+    const scrolled = window.scrollY;
+
+    // Move header at 40% speed of scroll (slower)
+    const rate = scrolled * 0.4;
+
+    // Fade out header as you scroll down
+    const opacity = Math.max(0, 1 - scrolled / 400);
+
+    header.style.transform = `translateY(${rate}px)`;
+    header.style.opacity = opacity.toString();
+    header.style.filter = `blur(${scrolled * 0.01}px)`;
+});
